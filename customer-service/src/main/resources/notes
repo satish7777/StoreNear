@@ -1,0 +1,4 @@
+insert into customer values(1000,'satish','reddy','satishkumar.kapu@gmail.com',9989065411,'A');
+insert into customer values(1111,'satish','reddy','satishkumar.kapu@gmail.com',9989065411,'A');
+
+INSERT INTO "PUBLIC"."ADDRESS"( "ADDRESS_ID", "ADDRESS1", "ADDRESS2", "CUSTOMER_ID" ) VALUES (1 , 'abc road', 'hyderbad',1000 );

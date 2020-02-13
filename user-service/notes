@@ -1,0 +1,101 @@
+Unsuccessful: alter table XXX drop constraint YYY in Hibernate/JPA/HSQLDB standalone:
+
+You can ignore these error. Combination of create-drop and in-memory database produces these for every database object it tries to drop. Reason being that there is not any database objects to remove - DROP statements are executed against empty database.
+
+Also with normal permanent database such a errors do come, because Hibernate does not figure out before executing DROP statements does added object exist in database or is it new
+
+
+---------------------------
+INSERT INTO "PUBLIC"."ROLES" ( "ROLE_ID", "ROLE_NAME" ) VALUES ( 1, 'Admin')
+
+{
+"userName": "ram",
+"location": "Toronto",
+"status" : "A",
+ "role" : {
+    "roleId":1
+ },
+ "password":"test"
+
+}
+
+{
+"categoryName": "Fruits",
+"categoryDescription": "Testdata",
+ "youtubeUrl":"google.com"
+}
+
+INSERT INTO "PUBLIC"."ORDERS"
+( "ORDER_ID", "DELIVERY_STATUS", "ORDER_DATE", "ORDER_NAME", "TOTAL_MONEY" )
+VALUES (1 , 'Pending',today , 'first order',20 )
+
+INSERT INTO "PUBLIC"."ORDER_ITEMS"
+( "ORDER_ITEM_ID", "DESCRIPTION", "DISCOUNT_PRICE", "FINAL_PRICE", "PRODUCT_NAME", "QUNTITY", "UNIT_PRICE", "FK_ORDER_ID" )
+VALUES ( 2, 'test order', 2,18 , 'rice', 2,10 , 1)
+
+INSERT INTO "PUBLIC"."CUSTOMER_ORDER"
+( "CUSTOMER_ORDER_ID", "ADDRESS_ID", "COMMENTS", "CUSTOMER_ID", "REQUIRED_DATE", "SHIPMENT_DATE", "SHIPPED_VIA", "FK_ORDER_ID" )
+VALUES (1 ,1 , 'skywalk',1 ,today  ,today , 'post', 1)
+
+
+create json
+ {
+       
+        "orderName": "first order",
+        "totalMoney": 20,
+        "orderDate": "2019-06-17T04:00:00.000+0000",
+        "deliveryStatus": "shipped",
+        
+         "orderItems": [
+            {
+               
+                "productName": "curd",
+                "quntity": 2,
+                "unitPrice": 10,
+                "discountPrice": 2,
+                "finalPrice": 18,
+                "description": "test order"
+            }
+        ],
+        "corder": {
+          
+            "customerId": 1,
+            "addressId": 1,
+            "requiredDate": "2019-06-17T04:00:00.000+0000",
+            "shipmentDate": "2019-06-17T04:00:00.000+0000",
+            "shippedVia": "post",
+            "comments": "skywalk"
+        
+       }
+       
+    
+}
+
+
+
+
+{
+"userName": "ram",
+"location": "Toronto",
+"status" : "A",
+ "role" : {
+    "roleId":1
+ },
+ "password":"test"
+
+}
+
+---------------
+docker build -t order-service .
+docker run -p 8085:8080 --name order order-service
+
+Getting into the docker 
+docker exec -it order /bin/ssh
+
+Identify the docker container ip
+
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
+
+docker-machine ip
+
+192.168.99.100

@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: order-service
+  datasource:
+    #driverClassName: com.hsqldb.jdbcDriver
+    url: jdbc:hsqldb:hsql://192.168.0.14/storenear
+    username:
+    password:
+  jpa:
+   databasePlatform: org.hibernate.dialect.HSQLDialect
+   hibernate.ddl-auto: update  
+   show-sql: true
+     
+server:
+  port: 8085
+  
+eureka:
+ client:
+  registerWithEureka: true
+  fetchRegistry : true
+  serviceUrl:
+    defaultZone: http://192.168.99.100:8888/eureka
+    instance:
+     preferredIpAddress: true

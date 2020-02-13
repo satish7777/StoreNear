@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: user-service
+  datasource:
+    #driverClassName: com.hsqldb.jdbcDriver
+    url: jdbc:hsqldb:hsql://localhost/storenear
+    username:
+    password:
+  jpa:
+   databasePlatform: org.hibernate.dialect.HSQLDialect
+   hibernate.ddl-auto: update  
+   show-sql: true
+     
+eureka:
+ client:
+  registerWithEureka: true
+  fetchRegistry : true
+  serviceUrl:
+    defaultZone: http://localhost:8888/eureka
+    instance:
+     preferredIpAddress: true
+    
+server:
+  port: 8081
+ 

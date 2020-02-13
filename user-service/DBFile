@@ -1,0 +1,177 @@
+UserMaintenance:
+
+UsersTable
+
+UserID
+FirstName
+LastName
+Password
+RoleId
+Location
+Status
+
+
+Role Table
+
+Rold Id
+Role Name
+Role Description
+Status
+
+User Role Table
+
+User Id
+User Name
+Role Id
+Status
+-------------------------
+Role creation Service
+Role update/delete
+
+Get User
+User Create Service
+User update service
+USer Delete service
+GetUSerByname
+USerByRole
+UserAuthentication
+
+----------------------------
+
+
+
+
+Product Service:
+--------------
+
+Product Table
+
+Product Id
+Product Name
+Category Id
+Quantity per Unit
+Unit Price
+UnitInStock
+UnitsOnOrder
+Discontinued
+
+
+Category Table:
+--------------
+
+Category Id
+CategoryName
+Description
+Image
+YoutubeUrl
+
+
+Promotion Tabel:
+
+PromotionId
+Promo Name
+Start Date
+EndDate
+DiscountAmmount
+DescountPercentage
+condition
+Status
+
+
+-------------------
+Create Product Service
+Update Product Service
+Delete Product Service
+GetProductByName
+GetProductCategory
+
+Create/update/delete promotion
+
+GetPromotionByName
+GetPromotionByCondition
+
+
+
+
+CustomerService:
+-----------------
+CustomerId
+First Name
+LastName
+ContactTitle
+AddressId
+MobileNumber
+emailId
+status
+
+CustomerAddress:
+
+Address Id
+CustomerId
+Address1
+Address2
+Address3
+LandMark
+City
+HomePhone
+PostalCode
+State
+
+Register Customer
+UpdateCustomer
+DeleteCustomer
+
+GetCustomerByLastName
+GetCustomerByEmailId
+GetCustomerByMobile
+
+
+
+
+
+
+Order Service:
+-------------
+
+Order Details :(Invocice Line of items)
+
+OrderId(Pk)
+Product Id
+Unit Price
+Qunatity
+Discount_ammount
+FinalPrice
+Description
+
+Customer Orders(Invoice)
+
+Order Id
+CustomerID
+AddressId
+OrderDate
+RequiredDate
+ShippedDate
+ShippedVia
+TotalMoney
+Delivery Status
+Comments
+Feedback Message
+
+
+
+ProductOrderServices_Creation
+CutomerOrderServices --If it is guest and first user call the customer registration Service
+CustomerOrderUpdateServiceByOrderID
+GetOrderInformationByCustomerID
+GetOrderInformationByOrderID
+
+
+
+
+Chain Responsibility Design pattern
+Aggregator Design Pattern
+
+
+https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/microservice-application-design
+db_tables.txt
+Displaying db_tables.txt.

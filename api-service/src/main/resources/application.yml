@@ -1,0 +1,31 @@
+spring :
+  application:
+    name: api-service
+
+server:
+  port: 9090
+  
+eureka:
+   client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+     defaultZone: http://192.168.99.100:8888/eureka
+     instance:
+      localhost: 
+zuul:
+ prefix: /api
+ routes:
+   user-service:
+    path: /user-service/**
+    url: http://localhost:8081    
+   product-service:
+    path: /product-service/**
+    url: http://localhost:8082
+   order-service:
+    path: /order-service/**
+    url: http://192.168.99.100:8085
+   customer-service:
+    path: /customer-service/**
+    url: http://localhost:8086
+    
